@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { AuthType, AuthDTO } from '../models/auth';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { User } from '../models/user';
+import { mergeMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,12 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   private auth(authType: AuthType, data: AuthDTO): Observable<User> {
-    return this.http.post<User>(`${this.api}/${authType}`, data);
+    return this.http.post<User>(`${this.api}/${authType}`, data).pipe(
+      mergeMap((user: User) => {
+        this.token = user.token;
+        return of(user);
+      })
+    );
   }
 
   register(data: AuthDTO) {
@@ -27,7 +33,7 @@ export class AuthService {
   whoami() {
     return this.http.get(`${this.api}/whoami`, {
       headers: {
-        authorizatin: `Bearer ${this.token}`
+        authorization: `Bearer ${this.token}`
       }
     });
   }
