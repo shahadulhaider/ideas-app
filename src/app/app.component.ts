@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.store.dispatch(new SetInitialUser());
     this.store
-      .select(state => state.error)
+      .select((state: AppState) => state.error)
       .subscribe(val => this.showError(val.error));
   }
 

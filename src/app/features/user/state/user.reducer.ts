@@ -1,5 +1,5 @@
 import { UserState } from '.';
-import { UserActions, UserActionsTypes } from './user.actions';
+import { UserAction, UserActionsTypes } from './user.actions';
 
 const initialState: UserState = {
   loaded: false,
@@ -9,7 +9,7 @@ const initialState: UserState = {
 
 export const userReducer: (
   state: UserState,
-  action: UserActions
+  action: UserAction
 ) => UserState = (state = initialState, action) => {
   switch (action.type) {
     case UserActionsTypes.LOAD_USERS:

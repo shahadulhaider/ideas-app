@@ -19,6 +19,10 @@ export class NavbarComponent implements OnInit {
       icon: 'fa fa-home'
     },
     {
+      label: 'Ideas',
+      routerLink: ['/ideas']
+    },
+    {
       label: 'Users',
       routerLink: ['/users']
     }

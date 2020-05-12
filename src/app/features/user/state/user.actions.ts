@@ -15,4 +15,4 @@ export class LoadUsersSuccess implements Action {
   constructor(public payload: User[]) {}
 }
 
-export type UserActions = LoadUsers | LoadUsersSuccess;
+export type UserAction = LoadUsers | LoadUsersSuccess;

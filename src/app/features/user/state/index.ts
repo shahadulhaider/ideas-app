@@ -1,5 +1,5 @@
 import { User } from 'src/app/models/user';
-import * as Store from '../../../../app/store/app-store.module';
+import * as Store from '../../../store/app-store.module';
 
 export interface UserState {
   users: User[];

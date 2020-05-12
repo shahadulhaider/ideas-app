@@ -8,6 +8,11 @@ const routes: Routes = [
     path: 'users',
     loadChildren: () =>
       import('./features/user/user.module').then(mod => mod.UserModule)
+  },
+  {
+    path: 'ideas',
+    loadChildren: () =>
+      import('./features/idea/idea.module').then(mod => mod.IdeaModule)
   }
 ];
 

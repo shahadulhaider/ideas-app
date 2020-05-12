@@ -18,6 +18,5 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(new LoadUsers());
     this.users = this.store.select(state => state.users.users);
-    console.log(this.users);
   }
 }
