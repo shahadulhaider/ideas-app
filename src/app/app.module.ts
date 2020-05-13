@@ -6,11 +6,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthComponent } from './components/auth/auth.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { ApiService } from './services/api.service';
 import { AuthService } from './services/auth.service';
+import { UUIDGuard } from './services/uuid.guard';
 import { AppStoreModule } from './store/app-store.module';
 import { UIModule } from './ui/ui.module';
-import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [AppComponent, AuthComponent, NavbarComponent],
@@ -24,7 +25,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     HttpClientModule,
     UIModule
   ],
-  providers: [AuthService, ApiService],
+  providers: [AuthService, ApiService, UUIDGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -13,6 +13,10 @@ const routes: Routes = [
     path: 'ideas',
     loadChildren: () =>
       import('./features/idea/idea.module').then(mod => mod.IdeaModule)
+  },
+  {
+    path: '**',
+    redirectTo: 'ideas'
   }
 ];
 
